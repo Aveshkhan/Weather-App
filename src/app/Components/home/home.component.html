@@ -1,0 +1,147 @@
+<div class="container mt-5">
+  <form>
+    <input
+      type="text"
+      class="form-control fs-5 shadow-sm"
+      placeholder="Enter City Name"
+      name="city"
+      (change)="change($event)"
+      list="datalistOptions"
+    />
+    <datalist id="datalistOptions">
+      <option value="San Francisco">
+      <option value="New York">
+      <option value="Seattle">
+      <option value="Los Angeles">
+      <option value="Chicago">
+    </datalist>
+  </form>
+</div>
+<div class="container" *ngIf="weatherData">
+  <div class="px-4 my-2 text-center border-bottom">
+    <h1 class="display-5 fw-bold mt-5">{{ weatherData.name }}</h1>
+    <div class="col-lg-6 mx-auto">
+      <h1 class="display-2 fw-bold">
+        {{ weatherData.main.temp | number: "1.0-0" }}°C
+      </h1>
+    </div>
+    <div class="overflow-hidden" style="max-height: 60vh">
+      <div class="container px-5">
+        <img
+          src="../../../assets/hotDay.jpg"
+          class="img-fluid rounded-3 mb-4"
+          alt="Example image"
+          width="100%"
+          height="500"
+          loading="lazy"
+          *ngIf="weatherData.main.temp > 15"
+        />
+        <img
+          src="../../../assets/coldDay.jpg"
+          class="img-fluid rounded-3 mb-4"
+          alt="Example image"
+          width="100%"
+          height="500"
+          loading="lazy"
+          *ngIf="weatherData.main.temp <= 15"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="boxes my-5 p-5">
+    <div class="box border rounded shadow-sm">
+      <div class="box-label">
+        <img src="../../../assets/temperature-low-solid.svg" alt="" />
+        <span>Min</span>
+      </div>
+      <div class="box-value fs-2 fw-bold">
+        {{ weatherData.main.temp_min | number: "1.0-0" }}°C
+      </div>
+    </div>
+    <div class="box border rounded shadow-sm">
+      <div class="box-label">
+        <img src="../../../assets/temperature-high-solid.svg" alt="" />
+        <span>Max</span>
+      </div>
+      <div class="box-value fs-2 fw-bold">
+        {{ weatherData.main.temp_max | number: "1.0-0" }}°C
+      </div>
+    </div>
+    <div class="box border rounded shadow-sm">
+      <div class="box-label">
+        <img src="../../../assets/droplet-solid.svg" alt="" />
+        <span>Humidity</span>
+      </div>
+      <div class="box-value fs-2 fw-bold">{{ weatherData.main.humidity }}%</div>
+    </div>
+    <div class="box border rounded shadow-sm">
+      <div class="box-label">
+        <img src="../../../assets/wind-solid.svg" alt="" />
+        <span>Wind</span>
+      </div>
+      <div class="box-value fs-2 fw-bold">{{ weatherData.wind.speed }}km/h</div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+<div class="px-4 pt-5 my-2 text-center border-bottom">
+  <Form>
+    <input type="text" class="form-control" placeholder="Enter City Name">
+  </Form>
+  <h1 class="display-5 fw-bold mt-5">Mumbai</h1>
+  <div class="col-lg-6 mx-auto">
+    <h1 class="display-2 fw-bold">{{30.00 | number: '1.0-0'}}°C</h1>
+
+  </div>
+  <div class="overflow-hidden" style="max-height: 60vh;">
+    <div class="container px-5">
+      <img src="../../../assets/hotDay.jpg" class="img-fluid rounded-3  mb-4" alt="Example image" width="100%" height="500" loading="lazy" *ngIf="14 > 15">
+      <img src="../../../assets/coldDay.jpg" class="img-fluid rounded-3  mb-4" alt="Example image" width="100%" height="500" loading="lazy" *ngIf="14 <= 15">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="boxes my-5  p-5 ">
+  <div class="box border rounded">
+    <div class="box-label">
+      <img src="../../../assets/temperature-low-solid.svg" alt="">
+      <span>Min</span>
+    </div>
+    <div class="box-value fs-2 fw-bold">
+      25°C
+    </div>
+  </div>
+  <div class="box border rounded">
+    <div class="box-label">
+      <img src="../../../assets/temperature-high-solid.svg" alt="">
+      <span>Max</span>
+    </div>
+    <div class="box-value fs-2 fw-bold">
+      35°C
+    </div>
+  </div>
+  <div class="box border rounded">
+    <div class="box-label">
+      <img src="../../../assets/droplet-solid.svg" alt="">
+      <span>Humidity</span>
+    </div>
+    <div class="box-value fs-2 fw-bold">
+      77%
+    </div>
+  </div>
+  <div class="box border rounded">
+    <div class="box-label">
+      <img src="../../../assets/wind-solid.svg" alt="">
+      <span>Wind</span>
+    </div>
+    <div class="box-value fs-2 fw-bold">
+      km/h
+    </div>
+  </div>
+</div>
+
+</div> -->

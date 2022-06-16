@@ -1,0 +1,28 @@
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px;
+  margin: 5px;
+  flex: 1;
+  backdrop-filter: blur(3px);
+  /* box-shadow: 0 1rem 3rem rgba(black, .175) !important; */
+}
+.box img{
+  height: 30px;
+  width: 30px;
+}
+.boxes{
+  display: flex !important;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: wrap;
+}
+.box-label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 10px;
+}
