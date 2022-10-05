@@ -5,8 +5,11 @@
   justify-content: space-around;
   padding: 16px;
   margin: 5px;
-  flex: 1;
   backdrop-filter: blur(3px);
+  max-width: 500px;
+  min-width: 200px;
+  width: 100%;
+  /* flex: 1; */
   /* box-shadow: 0 1rem 3rem rgba(black, .175) !important; */
 }
 .box img{
@@ -17,7 +20,9 @@
   display: flex !important;
   justify-content: space-around;
   align-items: center;
-  flex-flow: wrap;
+  flex-direction: column;
+
+  /* flex-flow: wrap; */
 }
 .box-label{
   display: flex;
@@ -26,3 +31,7 @@
   flex-direction: column;
   margin-right: 10px;
 }
+
+/* .container{
+
+} */

@@ -8,18 +8,18 @@ import { WeatherService } from 'src/app/Services/weather/weather.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  cityName?: string ;
+  cityName?: string;
   constructor(private weatherService: WeatherService) { }
 
-  weatherData?: WeatherData;
+  weatherData: any;
 
   ngOnInit(): void {
     this.weatherService.getWeatherByIP()
-    .subscribe((response) =>{
-      console.log(response.city);
-      this.cityName = response.city;
-      this.getWeatherData(this.cityName);
-    } )
+      .subscribe((response) => {
+        console.log(response.city);
+        this.cityName = response.city;
+        this.getWeatherData(this.cityName);
+      })
 
 
 
@@ -40,12 +40,12 @@ export class HomeComponent implements OnInit {
   }
 
   getWeatherData(cityName: string | undefined) {
-    this.weatherService.getWeatherData(cityName)
-      .subscribe({
-        next: (response: any) => {
-          this.weatherData = response;
-          console.log(response);
-        }
-      });
+    this.weatherService.getWeatherData(cityName).subscribe((response: any) => {
+      if (response) {
+        this.weatherData = response;
+        console.log(this.weatherData);
+      }
+    }
+    );
   }
 }
